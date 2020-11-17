@@ -1,2 +1,4 @@
 const app = new AppContainer
-app.run
+app.getUnits();
+app.bindEventListeners();
+app.hexEventListener();
