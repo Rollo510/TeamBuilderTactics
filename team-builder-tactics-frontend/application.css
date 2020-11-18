@@ -29,3 +29,7 @@ h1 {text-align: center;}
     border: 2px solid yellow;
     clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
 }
+
+.hide-hex {
+    display: none;
+}
