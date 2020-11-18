@@ -1,6 +1,8 @@
 class AppContainer {
 
+    
     units_url = "http://localhost:3000/units"
+    board_units_url = "http://localhost:3000/board_units"
 
 
     getUnits() {
@@ -38,6 +40,15 @@ class AppContainer {
             })
         }
     }
+
+
+    createNewBoard() {
+        document.getElementById("board-form").addEventListener('submit', function (e) {
+            e.preventDefault()
+            fetch()
+        })
+    }
+
 
     // clear board
     // make sure no duplicate units?

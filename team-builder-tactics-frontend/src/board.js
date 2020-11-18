@@ -1,8 +1,13 @@
 class Board {
 
+    static allBoards = [];
+
     constructor(name) {
         this.name = name;
-        this.description = description;
+        allBoards.push(this)
     }
+
+    
+    
 
 }
