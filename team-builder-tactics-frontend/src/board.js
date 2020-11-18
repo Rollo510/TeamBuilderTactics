@@ -34,6 +34,37 @@ class Board {
     renderEmptyBoard() {
 
     }
+
+    static createNewBoardUnits(e) {
+            e.preventDefault()
+            const elements = [];
+            const positions = [];
+            const name = e.target.querySelector("#name").value
+            const hexes = document.getElementsByClassName("hex");
+            for (let i = 0; i < hexes.length; i++) {
+                if (hexes[i].id.includes("unit")) {
+                    elements.push(hexes[i].id)
+                    //positions.push(hexposition)
+                    debugger                 
+                } 
+            }
+            fetch("http://localhost:3000/board_units", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                body: JSON.stringify({
+                    elements: elements,
+                    name: name 
+                    hex: position (change to int in ruby)
+                })
+            })
+    }
+
+
+    // clear board
+    // make sure no duplicate units?
     
 
 }
