@@ -27,18 +27,20 @@ class AppContainer {
     hexEventListener() {
         let elements = document.getElementsByClassName("hex");
         for (let i = 0; i < elements.length; i++) {
-            elements[i].addEventListener("click", function(e) {
+            elements[i].addEventListener("click", function() { 
                 if (document.querySelectorAll(".unit-avatar.red-border").length === 1 && this.querySelector(".hexTop").style.display != "none") {
-                    let championImage = document.querySelector(".unit-avatar.red-border").src.slice(52)
+                    const championImage = document.querySelector(".unit-avatar.red-border").src.slice(52)
                     this.querySelector(".hexTop").style.display = "none"
                     this.querySelector(".hexBottom").style.display = "none"
                     this.innerHTML += `<img src="${championImage}">`
+                    this.id = document.querySelector(".unit-avatar.red-border").id
                 }
             })
         }
     }
 
-
+    // clear board
+    // make sure no duplicate units?
 
 
 }
