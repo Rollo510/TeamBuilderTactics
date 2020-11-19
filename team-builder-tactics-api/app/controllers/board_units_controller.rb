@@ -2,19 +2,18 @@ class BoardUnitsController < ApplicationController
 
     def index
         board_units = BoardUnit.all
-        render json: board_unit_index
+        render json: board_units
     end
 
     def create 
-        counter = 0
         board = Board.find_or_create_by(name: params[:name])
-        params[:elements].each do |e|
+        board_units = params[:elements].map.with_index do |e, counter|
             id = e.split('_')[1]
             unit = Unit.find_by(id: id)
             position = params[:hex][counter].to_i
-            x = BoardUnit.create(board_id: board.id, unit_id: unit.id, hex: position)
-            counter+= 1
+            BoardUnit.create(unit_id: unit.id, board_id: board.id, hex: position)
         end
+        render json: board_units, except: [:created_at, :updated_at]
     end
     
 end

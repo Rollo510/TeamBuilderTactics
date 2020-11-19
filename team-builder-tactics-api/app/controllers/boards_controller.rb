@@ -1,5 +1,10 @@
 class BoardsController < ApplicationController
 
+    def index
+        boards = Board.all
+        render json: boards, except: [:description, :created_at, :updated_at]
+    end
+
     def new
         board = Board.new
     end
@@ -10,6 +15,11 @@ class BoardsController < ApplicationController
             allBoards << board
             render json: board
         end
+    end
+
+    def show
+        board = Board.find_by(id: params[:id])
+        render json: board, include: :board_units
     end
 
 
