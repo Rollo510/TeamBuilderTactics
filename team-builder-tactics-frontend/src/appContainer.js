@@ -1,10 +1,8 @@
 class AppContainer {
 
-    static boardIds = []
     units_url = "http://localhost:3000/units"
     board_units_url = "http://localhost:3000/board_units"
     boards_url = "http://localhost:3000/boards"
-    board_unit_url = "http://localhost:3000/board_unit_index"
     
 
     getUnits() {
@@ -14,34 +12,27 @@ class AppContainer {
             .catch(err => alert(err))
     }
 
+
     getBoards() {
         fetch(this.boards_url)
             .then(resp => resp.json())
             .then(boards => this.renderBoards(boards))
-            .catch(err => alert(err))    
-    }
-
-    getBoardUnits() {
-        fetch(this.board_unit_url)
-            .then(resp => resp.json())
-            .then()
+            .catch(err => alert(err))
     }
 
 
     renderBoards(data) {
-        this.boardIds.push(data)
         const teamNames = document.querySelector(".list-group-item")
         data.forEach(board => {
             teamNames.innerHTML += `<li class="list-group-item">${board.name}</li>`
         })
-        debugger
     }
+
 
     renderBoard(name) {
         const teamName = document.querySelector(".list-group-item")
         teamName.innerHTML += `<li class="list-group-item">${name}</li>`
     }
-
 
 
     renderUnits(units) {
@@ -52,12 +43,14 @@ class AppContainer {
         })
     }
 
+
     bindEventListeners() {
         document.querySelector(".champion-wrapper").addEventListener("click", function(e) {
             e.target.classList.toggle("red-border")
         })
     }
 
+    
     hexEventListener() {
         let elements = document.getElementsByClassName("hex");
         for (let i = 0; i < elements.length; i++) {

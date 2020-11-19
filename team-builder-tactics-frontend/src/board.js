@@ -7,15 +7,6 @@ class Board {
         this.id = board_obj.id;
         Board.allBoards.push(this)
     }
-    
-
-    // new Board for each of them
-    // create a new Board from the ashes of an old board (if you select a new board it overrides the previous)
-    // reset button to clear all tokens
-    // make sure user cant select multiple of the same token
-    // delete button 
-
-
 
 
     static createNewBoardUnits(e) {
