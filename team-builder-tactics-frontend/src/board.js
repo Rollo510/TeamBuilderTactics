@@ -45,6 +45,6 @@ class Board {
                     hex: positions
                 })
             })
-            appendNewName(name);
+            app.renderBoard(name);
     }
 }

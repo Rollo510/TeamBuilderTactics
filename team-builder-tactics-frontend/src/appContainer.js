@@ -28,6 +28,11 @@ class AppContainer {
         })
     }
 
+    renderBoard(name) {
+        const teamName = document.querySelector(".list-group-item")
+        teamName.innerHTML += `<li class="list-group-item">${name}</li>`
+    }
+
 
 
     renderUnits(units) {
