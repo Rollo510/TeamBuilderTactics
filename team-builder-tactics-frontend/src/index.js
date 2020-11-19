@@ -4,4 +4,3 @@ app.getBoards();
 app.bindEventListeners();
 app.hexEventListener();
 document.getElementById("board-unit-form").addEventListener('submit', Board.createNewBoardUnits)
-document.addEventListener("DOMContentLoaded", BoardUnit.getBoardUnits)

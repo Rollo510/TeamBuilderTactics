@@ -33,6 +33,10 @@ class Board {
                     hex: positions
                 })
             })
+            .then(resp => resp.json())
+            .then(obj => function () {
+                
+            })
             app.renderBoard(name);
     }
 }
