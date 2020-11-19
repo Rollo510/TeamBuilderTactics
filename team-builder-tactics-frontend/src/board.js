@@ -13,22 +13,13 @@ class Board {
     // fetch all Boards
     // new Board for each of them
     // display all these new Board names to the DOM
-    // create a new Board from the ashes of an old board
+    // create a new Board from the ashes of an old board (if you select a new board it overrides the previous)
     // reset button to clear all tokens
     // make sure user cant select multiple of the same token
     // delete button 
 
 
-    // renderBoardHexes() {        
-    //     for (let i = 0; i < 29; i++) {
-    //         document.querySelector(".board four-row").innerHTML +=
-    //         `<div class="board four-row">
-    //         <div class="hex" position="1" id = "${this.id}">
-    //             <div class="hexTop"></div>
-    //             <div class="hexBottom"></div>
-    //         </div>` 
-    //     }
-    //    }
+
 
     static createNewBoardUnits(e) {
             e.preventDefault()
@@ -54,5 +45,6 @@ class Board {
                     hex: positions
                 })
             })
+            appendNewName(name);
     }
 }

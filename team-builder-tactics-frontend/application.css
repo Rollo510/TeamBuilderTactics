@@ -1,6 +1,6 @@
 
 li.list-group-item.active {
-    background-color: red;
+    background-color: blueviolet;
 }
 
 h1 {text-align: center;}
@@ -32,4 +32,8 @@ h1 {text-align: center;}
 
 .hide-hex {
     display: none;
+}
+
+.list-group-item {
+    color: black;
 }
