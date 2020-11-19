@@ -1,7 +1,8 @@
+const board_units_url = "http://localhost:3000/board_units"
+
 class BoardUnit {
 
     static collection = []
-    board_units_url = "http://localhost:3000/board_units"
 
     constructor(obj) {
         this.unit_id = obj.unit_id;
@@ -17,14 +18,16 @@ class BoardUnit {
             .catch(err => alert(err))
     }
 
-    createBoardUnits(obj) {
+    
+    static displayTeamBoard(e) {
+        console.log(e.target)
+    }
+    
+    
+    static createBoardUnits(obj) {
         obj.forEach(unit => new BoardUnit(unit))
     }
 
-
-
-
-    // new Board(Unit) for each of them
     // create a new Board from the ashes of an old board (if you select a new board it overrides the previous)
     // reset button to clear all tokens
     // make sure user cant select multiple of the same token

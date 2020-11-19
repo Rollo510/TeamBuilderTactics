@@ -34,9 +34,7 @@ class Board {
                 })
             })
             .then(resp => resp.json())
-            .then(obj => function () {
-                
-            })
-            app.renderBoard(name);
-    }
+            .then(obj => BoardUnit.createBoardUnits(obj))
+            app.renderBoard(name)
+        }
 }

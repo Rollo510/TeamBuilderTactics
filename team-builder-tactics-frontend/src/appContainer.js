@@ -50,7 +50,14 @@ class AppContainer {
         })
     }
 
-    
+    bindBoardUnitEventListeners() {
+        const listItems = document.querySelectorAll(".list-group-item")
+        for (const listItem of listItems) {
+            listItem.addEventListener('click', BoardUnit.displayTeamBoard)
+        }
+    }
+
+
     hexEventListener() {
         let elements = document.getElementsByClassName("hex");
         for (let i = 0; i < elements.length; i++) {
