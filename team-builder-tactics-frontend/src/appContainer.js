@@ -13,6 +13,13 @@ class AppContainer {
         .catch(err => alert(err))
     }
 
+    getBoards() {
+        fetch(this.)
+            .then(resp => resp.json())
+            .then(units => this.renderUnits(units))
+            .catch(err => alert(err))
+    }
+
     renderUnits(units) {
         const championsContainer = document.querySelector(".champions")
         championsContainer.innerHTML = ""
