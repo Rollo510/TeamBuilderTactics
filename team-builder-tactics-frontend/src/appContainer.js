@@ -1,31 +1,40 @@
 class AppContainer {
 
-    
+    static boardIds = []
     units_url = "http://localhost:3000/units"
     board_units_url = "http://localhost:3000/board_units"
     boards_url = "http://localhost:3000/boards"
-
+    board_unit_url = "http://localhost:3000/board_unit_index"
     
 
     getUnits() {
         fetch(this.units_url)
-        .then(resp => resp.json())
-        .then(units => this.renderUnits(units))
-        .catch(err => alert(err))
+            .then(resp => resp.json())
+            .then(units => this.renderUnits(units))
+            .catch(err => alert(err))
     }
 
     getBoards() {
         fetch(this.boards_url)
             .then(resp => resp.json())
             .then(boards => this.renderBoards(boards))
-            .catch(err => alert(err))
+            .catch(err => alert(err))    
     }
 
+    getBoardUnits() {
+        fetch(this.board_unit_url)
+            .then(resp => resp.json())
+            .then()
+    }
+
+
     renderBoards(data) {
+        this.boardIds.push(data)
         const teamNames = document.querySelector(".list-group-item")
         data.forEach(board => {
             teamNames.innerHTML += `<li class="list-group-item">${board.name}</li>`
         })
+        debugger
     }
 
     renderBoard(name) {

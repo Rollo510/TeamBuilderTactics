@@ -1,7 +1,6 @@
 class Board {
 
     static allBoards = [];
-    boards = [];
 
     constructor(board_obj) {
         this.name = board_obj.name;
@@ -10,9 +9,7 @@ class Board {
     }
     
 
-    // fetch all Boards
     // new Board for each of them
-    // display all these new Board names to the DOM
     // create a new Board from the ashes of an old board (if you select a new board it overrides the previous)
     // reset button to clear all tokens
     // make sure user cant select multiple of the same token
