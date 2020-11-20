@@ -12,21 +12,6 @@ class BoardUnit {
         BoardUnit.collection.push(this)
         this.renderSingleBoard()
     }
-
-    getBoardUnits() {
-        fetch(this.board_units_url)
-            .then(resp => resp.json())
-            .then(obj => this.createBoardUnits(obj))
-            .catch(err => alert(err))
-    }
-
-    
-    static displayTeamBoard(e) {
-        fetch(show_url + `${e.target.id}`)
-        .then(resp => resp.json())
-        .then(data => console.log(e.target))
-        .catch(err => alert(err))
-    }
     
     renderSingleBoard() {
         let item = BoardUnit.collection.slice(-1)[0]
@@ -37,14 +22,30 @@ class BoardUnit {
         }
     }
 
-
+    getBoardUnits() {
+        fetch(this.board_units_url)
+            .then(resp => resp.json())
+            .then(obj => this.createBoardUnits(obj))
+            .catch(err => alert(err))
+    }
+    
     static createBoardUnits(obj) {
         obj.forEach(unit => new BoardUnit(unit))
     }
+    
+
+    static getTeam(e) {
+        fetch(show_url + `${e.target.id}`)
+        .then(resp => resp.json())
+        .then(data => console.log(data))
+        .catch(err => alert(err))
+    }
+    
+
+
 
     // create a new Board from the ashes of an old board (if you select a new board it overrides the previous)
     // reset button to clear all tokens
-    // make sure user cant select multiple of the same token
     // delete button 
 
 

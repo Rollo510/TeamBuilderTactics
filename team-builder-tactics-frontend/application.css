@@ -37,3 +37,11 @@ h1 {text-align: center;}
 .list-group-item {
     color: black;
 }
+
+.hexBottom {
+    pointer-events: none;
+}
+
+.hexTop {
+    pointer-events: none;
+}
