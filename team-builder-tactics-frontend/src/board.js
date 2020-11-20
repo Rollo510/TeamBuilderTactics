@@ -35,6 +35,6 @@ class Board {
             })
             .then(resp => resp.json())
             .then(obj => BoardUnit.createBoardUnits(obj))
-            app.renderBoard(name)
         }
+
 }

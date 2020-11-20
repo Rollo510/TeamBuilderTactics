@@ -1,4 +1,5 @@
 const board_units_url = "http://localhost:3000/board_units"
+const show_url = "http://localhost:3000/boards/"
 
 class BoardUnit {
 
@@ -9,6 +10,7 @@ class BoardUnit {
         this.board_id = obj.board_id;
         this.hex = obj.hex;
         BoardUnit.collection.push(this)
+        this.renderSingleBoard()
     }
 
     getBoardUnits() {
@@ -20,10 +22,22 @@ class BoardUnit {
 
     
     static displayTeamBoard(e) {
-        console.log(e.target)
+        fetch(show_url + `${e.target.id}`)
+        .then(resp => resp.json())
+        .then(data => console.log(e.target))
+        .catch(err => alert(err))
     }
     
-    
+    renderSingleBoard() {
+        let item = BoardUnit.collection.slice(-1)[0]
+        let name = document.getElementById("name").value
+        const teamName = document.querySelector(".list-group-item")
+            if (!teamName.innerHTML.includes(`<li class="list-group-item" id="${item.board_id}">${name}</li>`)) {
+            teamName.innerHTML += `<li class="list-group-item" id="${item.board_id}">${name}</li>`
+        }
+    }
+
+
     static createBoardUnits(obj) {
         obj.forEach(unit => new BoardUnit(unit))
     }

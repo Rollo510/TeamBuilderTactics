@@ -24,14 +24,8 @@ class AppContainer {
     renderBoards(data) {
         const teamNames = document.querySelector(".list-group-item")
         data.forEach(board => {
-            teamNames.innerHTML += `<li class="list-group-item">${board.name}</li>`
+            teamNames.innerHTML += `<li class="list-group-item" id="${board.id}">${board.name}</li>`
         })
-    }
-
-
-    renderBoard(name) {
-        const teamName = document.querySelector(".list-group-item")
-        teamName.innerHTML += `<li class="list-group-item">${name}</li>`
     }
 
 
