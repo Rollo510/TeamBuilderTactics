@@ -19,7 +19,9 @@ class BoardsController < ApplicationController
 
     def show
         board = Board.find_by(id: params[:id])
-        render json: board, include: :board_units
+        render json: board.to_json(:include => {
+            :board_units => {:except => [:created_at, :updated_at] }
+        }, :except => [:description, :created_at, :updated_at])
     end
 
 
