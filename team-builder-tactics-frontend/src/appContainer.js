@@ -5,8 +5,15 @@ const show_url = "http://localhost:3000/boards/"
 
 class AppContainer {
 
+
     resetBoard() {
-        
+        debugger
+        const currentBoard = Array.from(document.getElementsByClassName("hex"))
+        for (let i = 0; i < currentBoard.length; i++) {
+            currentBoard[i].id = "hex_" + i
+            currentBoard[i].innerHTML = `<div class="hexTop"></div>
+                <div class="hexBottom"></div>`
+        }
     }
 
     getUnits() {
@@ -46,6 +53,10 @@ class AppContainer {
         document.querySelector(".champion-wrapper").addEventListener("click", function(e) {
             e.target.classList.toggle("red-border")
         })
+    }
+
+    resetBoardListener() {
+        document.getElementById("reset-board").addEventListener("click", this.resetBoard)
     }
 
     bindBoardUnitEventListeners() {
