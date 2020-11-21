@@ -8,15 +8,15 @@ class BoardUnit {
         this.unit_id = obj.unit_id;
         this.board_id = obj.board_id;
         this.hex = obj.hex;
-        BoardUnit.collection.push(this)
+        BoardUnit.collection.push(this)  
         this.renderSingleBoard()
     }
     
     renderSingleBoard() {
-        let item = BoardUnit.collection.slice(-1)[0]
+        let item = BoardUnit.collection.slice(-2)[0]
         let name = document.getElementById("name").value
         const teamName = document.querySelector(".list-group-item")
-            if (!teamName.innerHTML.includes(`<li class="list-group-item" id="${item.board_id}">${name}</li>`)) {
+        if (!teamName.innerHTML.includes(`<li class="list-group-item" id="${item.board_id}">${name}</li>`) && document.getElementById("name").value != "") {
                 teamName.insertAdjacentHTML("afterbegin", `<li class="list-group-item" id="${item.board_id}">${name}</li>`)
                 document.getElementById("name").value = ""
         }

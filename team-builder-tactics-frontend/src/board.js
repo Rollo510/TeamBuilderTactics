@@ -50,7 +50,7 @@ class Board {
     }
 
     renderTeam() {
-        debugger
+        
     }
 
 
