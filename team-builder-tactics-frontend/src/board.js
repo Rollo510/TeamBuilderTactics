@@ -1,3 +1,5 @@
+const show_url = "http://localhost:3000/boards/"
+
 class Board {
 
     static allBoards = [];
@@ -5,6 +7,7 @@ class Board {
     constructor(board_obj) {
         this.name = board_obj.name;
         this.id = board_obj.id;
+        this.board_units = board_obj.board_units;
         Board.allBoards.push(this)
     }
 
@@ -36,5 +39,31 @@ class Board {
             .then(resp => resp.json())
             .then(obj => BoardUnit.createBoardUnits(obj))
         }
+
+
+    static getTeam(e) {
+        fetch(show_url + `${e.target.id}`)
+            .then(resp => resp.json())
+            .then(data => new Board(data))
+            .then(Board.renderTeam())
+            .catch(err => alert(err))
+    }
+
+    static renderTeam() {
+        
+    }
+
+
+
+
+
+
+    // create a new Board from the ashes of an old board (if you select a new board it overrides the previous)
+    // reset button to clear all tokens
+    // delete button 
+
+
+
+
 
 }

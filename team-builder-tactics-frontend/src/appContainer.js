@@ -47,7 +47,7 @@ class AppContainer {
     bindBoardUnitEventListeners() {
         const listItems = document.querySelectorAll(".list-group-item")
         for (const listItem of listItems) {
-            listItem.addEventListener('click', BoardUnit.getTeam)
+            listItem.addEventListener('click', Board.getTeam)
         }
     }
 

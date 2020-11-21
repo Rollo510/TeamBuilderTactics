@@ -1,5 +1,4 @@
 const board_units_url = "http://localhost:3000/board_units"
-const show_url = "http://localhost:3000/boards/"
 
 class BoardUnit {
 
@@ -32,23 +31,6 @@ class BoardUnit {
     static createBoardUnits(obj) {
         obj.forEach(unit => new BoardUnit(unit))
     }
-    
-
-    static getTeam(e) {
-        fetch(show_url + `${e.target.id}`)
-        .then(resp => resp.json())
-        .then(data => console.log(data))
-        .catch(err => alert(err))
-    }
-    
-
-
-
-    // create a new Board from the ashes of an old board (if you select a new board it overrides the previous)
-    // reset button to clear all tokens
-    // delete button 
-
-
 
 
 
