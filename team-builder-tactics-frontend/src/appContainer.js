@@ -5,7 +5,9 @@ const show_url = "http://localhost:3000/boards/"
 
 class AppContainer {
 
-    
+    resetBoard() {
+        
+    }
 
     getUnits() {
         fetch(units_url)
@@ -60,9 +62,8 @@ class AppContainer {
             elements[i].addEventListener("click", function() { 
                 if (document.querySelectorAll(".unit-avatar.red-border").length === 1 && !this.querySelector(".hexTop").classList.contains("hide-hex")) {
                     const championImage = document.querySelector(".unit-avatar.red-border").src.slice(89)
-                    const elements = document.getElementsByClassName("hex")
-                    const elementArray = Array.from(elements)
-                    let hexIds = elementArray.map(x => x.id)
+                    const elements = Array.from(document.getElementsByClassName("hex"))
+                    let hexIds = elements.map(x => x.id)
                     if (!hexIds.includes(document.querySelector(".unit-avatar.red-border").id)) {
                         this.querySelector(".hexTop").classList.toggle("hide-hex")
                         this.querySelector(".hexBottom").classList.toggle("hide-hex")

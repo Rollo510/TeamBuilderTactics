@@ -48,15 +48,29 @@ class Board {
     }
 
     renderTeamImages() {
-        const champions = document.getElementsByClassName("unit-avatar")
-        let result = Array.from(Board.allBoards).board_units
-        debugger
-        
+        const champions = Array.from(document.getElementsByClassName("unit-avatar"))
+        for (let i = 0; i < this.board_units.length; i++) {
+            for (let x = 0; x < champions.length; x++) {
+                if ("unit_" + this.board_units[i].unit_id === champions[x].id) {
+                    let hexes = Array.from(document.querySelectorAll(".hex"))
+                    for (let y = 0; y < hexes.length; y++) {
+                        if ("hex_" + this.board_units[i].hex === hexes[y].id) {
+                            let championImage = champions[x].src.slice(89)
+                            hexes[y].innerHTML += `<img src="${championImage}">`
+                            hexes[y].querySelector(".hexBottom").classList.toggle("hide-hex")
+                            hexes[y].querySelector(".hexTop").classList.toggle("hide-hex")
+                            hexes[y].id = champions[x].id
+                        }
+                    }
+
+                } 
+            }
+        }
     }
 
 
     // create a new Board from the ashes of an old board (if you select a new board it overrides the previous)
-    // reset button to clear all tokens
+    // reset button to clear all tokens //reset before renderTeamImages
     // delete button 
 
 
