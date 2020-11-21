@@ -1,5 +1,3 @@
-const board_units_url = "http://localhost:3000/board_units"
-
 class BoardUnit {
 
     static collection = []
@@ -23,7 +21,7 @@ class BoardUnit {
     }
 
     getBoardUnits() {
-        fetch(this.board_units_url)
+        fetch(board_units_url)
             .then(resp => resp.json())
             .then(obj => this.createBoardUnits(obj))
             .catch(err => alert(err))

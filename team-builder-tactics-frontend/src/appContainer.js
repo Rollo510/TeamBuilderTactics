@@ -1,12 +1,14 @@
+const units_url = "http://localhost:3000/units"
+const board_units_url = "http://localhost:3000/board_units"
+const boards_url = "http://localhost:3000/boards"
+const show_url = "http://localhost:3000/boards/"
+
 class AppContainer {
 
-    units_url = "http://localhost:3000/units"
-    board_units_url = "http://localhost:3000/board_units"
-    boards_url = "http://localhost:3000/boards"
     
 
     getUnits() {
-        fetch(this.units_url)
+        fetch(units_url)
             .then(resp => resp.json())
             .then(units => this.renderUnits(units))
             .catch(err => alert(err))
@@ -14,7 +16,7 @@ class AppContainer {
 
 
     getBoards() {
-        fetch(this.boards_url)
+        fetch(boards_url)
             .then(resp => resp.json())
             .then(boards => this.renderBoards(boards))
             .catch(err => alert(err))

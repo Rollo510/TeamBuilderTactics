@@ -1,5 +1,3 @@
-const show_url = "http://localhost:3000/boards/"
-
 class Board {
 
     static allBoards = [];
@@ -45,17 +43,16 @@ class Board {
         fetch(show_url + `${e.target.id}`)
             .then(resp => resp.json())
             .then(data => new Board(data))
-            .then(board => board.renderTeam())
+            .then(board => board.renderTeamImages())
             .catch(err => alert(err))
     }
 
-    renderTeam() {
+    renderTeamImages() {
+        const champions = document.getElementsByClassName("unit-avatar")
+        let result = Array.from(Board.allBoards).board_units
+        debugger
         
     }
-
-
-
-
 
 
     // create a new Board from the ashes of an old board (if you select a new board it overrides the previous)
