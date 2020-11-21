@@ -16,7 +16,7 @@ class Board {
             e.preventDefault()
             const elements = [];
             const positions = [];
-            const name = e.target.querySelector("#name").value
+            let name = e.target.querySelector("#name").value
             const hexes = document.getElementsByClassName("hex");
             for (let i = 0; i < hexes.length; i++) {
                 if (hexes[i].id.includes("unit")) {
@@ -45,12 +45,12 @@ class Board {
         fetch(show_url + `${e.target.id}`)
             .then(resp => resp.json())
             .then(data => new Board(data))
-            .then(Board.renderTeam())
+            .then(board => board.renderTeam())
             .catch(err => alert(err))
     }
 
-    static renderTeam() {
-        
+    renderTeam() {
+        debugger
     }
 
 

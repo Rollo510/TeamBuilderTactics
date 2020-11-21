@@ -17,7 +17,8 @@ class BoardUnit {
         let name = document.getElementById("name").value
         const teamName = document.querySelector(".list-group-item")
             if (!teamName.innerHTML.includes(`<li class="list-group-item" id="${item.board_id}">${name}</li>`)) {
-            teamName.innerHTML += `<li class="list-group-item" id="${item.board_id}">${name}</li>`
+                teamName.insertAdjacentHTML("afterbegin", `<li class="list-group-item" id="${item.board_id}">${name}</li>`)
+                document.getElementById("name").value = ""
         }
     }
 
