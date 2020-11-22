@@ -9,4 +9,8 @@ class UnitsController < ApplicationController
         
     end
     
+    def destroy
+        unit = Unit.find_by(id: params[:id])
+    end
+    
 end

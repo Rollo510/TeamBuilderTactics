@@ -15,5 +15,9 @@ class BoardUnitsController < ApplicationController
         end
         render json: board_units, except: [:created_at, :updated_at]
     end
+
+    def destroy
+        board_unit = BoardUnit.find_by(id: params[:id])
+    end
     
 end
