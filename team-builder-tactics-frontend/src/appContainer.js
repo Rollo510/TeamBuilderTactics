@@ -24,6 +24,36 @@ class AppContainer {
             .catch(err => alert(err))
     }
 
+    bindDeleteListeners() {
+        const listItems = document.querySelectorAll(".list-group-item")
+        for (const listItem of listItems) {
+            listItem.addEventListener('click', function(e) {
+                const deleteBTN = document.getElementById("delete-space")
+                deleteBTN.innerHTML += `<button type="delete" value="Delete" id="delete-button">Delete Board</button>`
+                app.deleteButtonListener(e.target.id)
+            })
+        }
+    }
+
+    deleteButtonListener(boardId) {
+        document.getElementById("delete-button").addEventListener("click", app.deleteBoard(boardId))
+    }
+
+
+    deleteBoard(id) {
+        fetch(show_url + `${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(resp => resp.json())
+        .then(data => {
+            this.getUnits()
+        })
+    }
+
+
 
     getBoards() {
         fetch(boards_url)

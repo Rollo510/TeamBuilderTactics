@@ -15,6 +15,9 @@ class Board {
             const elements = [];
             const positions = [];
             let name = e.target.querySelector("#name").value
+            if (name === "") {
+                alert("Team name can't be blank!")
+            }
             const hexes = document.getElementsByClassName("hex");
             for (let i = 0; i < hexes.length; i++) {
                 if (hexes[i].id.includes("unit")) {
@@ -36,6 +39,7 @@ class Board {
             })
             .then(resp => resp.json())
             .then(obj => BoardUnit.createBoardUnits(obj))
+            .catch(err => alert(err))
         }
 
 
@@ -69,5 +73,5 @@ class Board {
         }
     }
 
-    
+
 }
