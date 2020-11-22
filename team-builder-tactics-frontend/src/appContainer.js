@@ -40,12 +40,11 @@ class AppContainer {
         })
     }
 
-
     renderUnits(units) {
         const championsContainer = document.querySelector(".champions")
         championsContainer.innerHTML = ""
         units.forEach(unit => {
-            championsContainer.innerHTML += `<img src="src/images/${unit.image}" class="unit-avatar" id="unit_${unit.id}" />`
+            championsContainer.innerHTML += `<li><img src="src/images/${unit.image}" class="unit-avatar" id="unit_${unit.id}" /></li>`
         })
     }
 
@@ -81,6 +80,7 @@ class AppContainer {
                         this.querySelector(".hexBottom").classList.toggle("hide-hex")
                         this.innerHTML += `<img src="${championImage}">`
                         this.id = document.querySelector(".unit-avatar.red-border").id
+                        document.querySelector(".unit-avatar.red-border").classList.toggle("red-border")
                     }
                 }
             })

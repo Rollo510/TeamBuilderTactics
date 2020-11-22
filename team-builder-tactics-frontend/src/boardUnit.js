@@ -11,11 +11,12 @@ class BoardUnit {
     }
     
     renderSingleBoard() {
+        app.resetBoard()
         let item = BoardUnit.collection.slice(-2)[0]
         let name = document.getElementById("name").value
         const teamName = document.querySelector(".list-group-item")
         if (!teamName.innerHTML.includes(`<li class="list-group-item" id="${item.board_id}">${name}</li>`) && document.getElementById("name").value != "") {
-                teamName.insertAdjacentHTML("afterbegin", `<li class="list-group-item" id="${item.board_id}">${name}</li>`)
+            teamName.insertAdjacentHTML("afterbegin", `<li class="list-group-item" id="${item.board_id}">${name}</li>`)
                 document.getElementById("name").value = ""
         }
     }

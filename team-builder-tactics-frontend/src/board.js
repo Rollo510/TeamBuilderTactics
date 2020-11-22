@@ -48,6 +48,7 @@ class Board {
     }
 
     renderTeamImages() {
+        app.resetBoard();
         const champions = Array.from(document.getElementsByClassName("unit-avatar"))
         for (let i = 0; i < this.board_units.length; i++) {
             for (let x = 0; x < champions.length; x++) {
@@ -68,13 +69,5 @@ class Board {
         }
     }
 
-
-    // create a new Board from the ashes of an old board (if you select a new board it overrides the previous)
-    // reset button to clear all tokens //reset before renderTeamImages
-    // delete button 
-
-
-
-
-
+    
 }

@@ -18,7 +18,11 @@ li.list-group-item.active {
 
 .champions {
     margin-top: 30px;
-    width: 800px;
+    width: 400px;
+    position: absolute;
+    right: 560px;
+    top: 120px;
+
 }
 
 .unit-avatar {
@@ -27,6 +31,12 @@ li.list-group-item.active {
     float: left;
     padding: 5px;
     margin-top: 5px;
+    border-radius: 10px;
+}
+
+.unit-avatar:hover {
+    border: 2px solid yellow;
+
 }
 
 .red-border {
@@ -34,9 +44,10 @@ li.list-group-item.active {
 }
 
 .hex img {
-    margin-top: -10;
-    border: 2px solid yellow;
-    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    margin-top: -16;
+    margin-left: -5px;
+    border: 5px solid green;
+    clip-path: polygon(48% 0, 105% 24%, 100% 75%, 50% 100%, 0 75%, 0 22%);
 }
 
 .hide-hex {
@@ -47,10 +58,40 @@ li.list-group-item.active {
     color: black;
 }
 
+.list-group-item:hover {
+    background-color: yellow;
+    cursor: pointer;
+}
+
 .hexBottom {
     pointer-events: none;
 }
 
 .hexTop {
     pointer-events: none;
+}
+
+#reset-board {
+    position: absolute;
+    top: 115px;
+    left: 75px;
+    width: 100px;
+}
+
+#name {
+    position: absolute;
+    top: 115px;
+    left: 265px;
+}
+
+#submit {
+    position: absolute;
+    top: 112px;
+    left: 465px;
+}
+
+
+
+.hex:hover {
+    background-color: lightcoral;   
 }
