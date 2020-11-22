@@ -7,12 +7,13 @@ class AppContainer {
 
 
     resetBoard() {
-        debugger
         const currentBoard = Array.from(document.getElementsByClassName("hex"))
         for (let i = 0; i < currentBoard.length; i++) {
-            currentBoard[i].id = "hex_" + i
             currentBoard[i].innerHTML = `<div class="hexTop"></div>
-                <div class="hexBottom"></div>`
+            <div class="hexBottom"></div>`
+        }
+        for (let x = 0; x < currentBoard.length; x++) {
+            currentBoard[x].id = "hex_" + (x + 1)
         }
     }
 
