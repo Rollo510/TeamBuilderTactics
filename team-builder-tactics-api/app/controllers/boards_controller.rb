@@ -29,7 +29,6 @@ class BoardsController < ApplicationController
         board_unit = BoardUnit.find_by(id: params[:id])
         boards = Board.all
         board.destroy
-        board_unit.destroy
         render json: boards, except: [:description, :created_at, :updated_at]
     end
 
