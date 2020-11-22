@@ -38,7 +38,8 @@ class AppContainer {
 
     deleteButtonListener() {
         document.querySelector('button[type="delete"]').addEventListener("click", function (e) {
-            document.getElementById(`${e.target.id}`)
+            let listItem = document.getElementById(`${e.target.id}`)
+            listItem.remove()
             fetch(show_url + `${e.target.id}`, {
                 method: "DELETE",
                 headers: {
@@ -46,8 +47,6 @@ class AppContainer {
                 },
             })
                 .then(app.resetBoard())
-                .then(app.getUnits())
-                .then(app.getBoards())
         })
     }
 
