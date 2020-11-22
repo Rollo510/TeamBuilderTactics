@@ -96,6 +96,6 @@ li.list-group-item.active {
 
 button[type="delete"] {
     position: absolute;
-    top: 75px;
-    right: 250px;
+    top: 115px;
+    left: 636px;
 }

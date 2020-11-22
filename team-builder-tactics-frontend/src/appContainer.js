@@ -29,7 +29,7 @@ class AppContainer {
         for (const listItem of listItems) {
             listItem.addEventListener('click', function(e) {
                 const deleteBTN = document.getElementById("delete-space")
-                deleteBTN.innerHTML += `<button type="delete" name="delete-button" value="Delete" id="${e.target.id}">Delete Board</button>`
+                deleteBTN.innerHTML = `<button type="delete" name="delete-button" value="Delete" id="${e.target.id}">Delete Board</button>`
                 app.deleteButtonListener()
             })
         }
