@@ -29,31 +29,27 @@ class AppContainer {
         for (const listItem of listItems) {
             listItem.addEventListener('click', function(e) {
                 const deleteBTN = document.getElementById("delete-space")
-                deleteBTN.innerHTML += `<button type="delete" value="Delete" id="delete-button">Delete Board</button>`
-                app.deleteButtonListener(e.target.id)
+                deleteBTN.innerHTML += `<button type="delete" name="delete-button" value="Delete" id="${e.target.id}">Delete Board</button>`
+                app.deleteButtonListener()
             })
         }
     }
 
-    deleteButtonListener(boardId) {
-        document.getElementById("delete-button").addEventListener("click", app.deleteBoard(boardId))
-    }
 
-
-    deleteBoard(id) {
-        fetch(show_url + `${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(resp => resp.json())
-        .then(data => {
-            this.getUnits()
+    deleteButtonListener() {
+        document.querySelector('button[type="delete"]').addEventListener("click", function (e) {
+            document.getElementById(`${e.target.id}`)
+            fetch(show_url + `${e.target.id}`, {
+                method: "DELETE",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+                .then(app.resetBoard())
+                .then(app.getUnits())
+                .then(app.getBoards())
         })
     }
-
-
 
     getBoards() {
         fetch(boards_url)
