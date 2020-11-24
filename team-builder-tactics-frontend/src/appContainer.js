@@ -47,6 +47,7 @@ class AppContainer {
                 },
             })
                 .then(app.resetBoard())
+                .catch(err => alert(err))
         })
     }
 
