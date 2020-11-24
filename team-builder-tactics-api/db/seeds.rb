@@ -32,4 +32,4 @@ irelia = Unit.create(name: "Irelia", image: "TFT4_Irelia.png", cost: 3)
 janna = Unit.create(name: "Janna", image: "TFT4_Janna.png", cost: 2)
 katarina = Unit.create(name: "Katarina", image: "TFT4_Katarina.png", cost: 3)
 kayn = Unit.create(name: "Kayn", image: "TFT4_Kayn.png", cost: 5)
-
+sejuani = Unit.create(name: "Sejuani", image: "TFT4_Sejuani.png", cost: 4)
